@@ -1,23 +1,10 @@
-import cuid from 'cuid';
+import { combineReducers } from "redux";
+import restaurantReducer from './restaurantReducer'
+import manageReview from './manageReview'
 
-export default function manageRestaurants(state = [], action) {
-    switch (action.type){
-        case 'ADD_RESTAURANT':
+const rootReducer = combineReducers({
+  restaurants: restaurantReducer,
+  reviews: manageReview
+});
 
-            const newRestaurant = {
-                id: cuid(),
-                text: action.restaurant
-            }
-
-            return [...state, newRestaurant]
-
-        case 'DELETE_RESTAURANT':
-            
-            const newRestaurantArray = state.filter(rest => rest.id !== action.id)
-
-            return [...newRestaurantArray]
-
-
-        default: return state
-    }
-}
+export default rootReducer;

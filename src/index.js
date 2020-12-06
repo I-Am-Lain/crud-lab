@@ -7,7 +7,7 @@ import { createStore } from 'redux';
 
 // import manageRestaurant from './reducers/manageRestaurant';
 // import manageReview from './reducers/manageReview';
-import rootReducer from './reducers/index.js'
+import rootReducer from './reducers/manageRestaurant.js'
 
 
 const store = createStore(rootReducer,

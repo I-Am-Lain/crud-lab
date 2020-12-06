@@ -6,11 +6,18 @@ export default function manageReviews(state = [], action) {
 
             const newReview = {
                 id: cuid(),
-                text: action.reviewText,
-                restaurantId: action.restaurantId
+                text: action.review.text,
+                restaurantId: action.review.restaurantId
             }
 
             return [...state, newReview]
+
+        case 'DELETE_REVIEW':
+            
+            const newReviewArray = state.filter(review => review.id !== action.id)
+
+            return newReviewArray
+            
 
         default: return state
     }
